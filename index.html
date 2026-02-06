@@ -2,487 +2,247 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>张熠璇 - 个人主页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Yixuan Zhang</title>
     <link rel="stylesheet" href="style.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- 导航栏 -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <h2>张熠璇 (Suri)</h2>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">首页</a></li>
-                <li><a href="#about" class="nav-link">关于我</a></li>
-                <li><a href="#research" class="nav-link">研究兴趣</a></li>
-                <li><a href="#publications" class="nav-link">发表论文</a></li>
-                <li><a href="#experience" class="nav-link">科研经历</a></li>
-                <li><a href="#internship" class="nav-link">实习经历</a></li>
-                <li><a href="#achievements" class="nav-link">成就&荣誉</a></li>
-                <li><a href="#skills" class="nav-link">技能</a></li>
-            </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="top-nav-container">
+            <a href="#" class="top-nav-brand">Yixuan Zhang（张熠璇）</a>
+            <div class="top-nav-links">
+                <a href="#about">About</a>
+                <a href="#news">News</a>
+                <a href="#education">Education</a>
+                <a href="#publications">Publications</a>
+                <a href="#awards">Awards</a>
+                <a href="#experience">Experience</a>
+                <a href="#skills">Skills</a>
             </div>
         </div>
     </nav>
 
-    <!-- 主页部分 -->
-    <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="hero-title">
-                        <span class="title-line">你好呀👋，我是</span>
-                        <span class="title-name">张熠璇</span>
-                    </h1>
-                    <p class="hero-subtitle">计算机科学与技术专业本科生</p>
-                    <p class="hero-description">
-                        多模态情感计算 | 人机交互研究<br>
-                        东北大学计算机科学与技术专业 · 专业排名第一
-                    </p>
-                    <!-- <div class="hero-buttons">
-                        <a href="#research" class="btn btn-primary">查看研究</a>
-                        <a href="保研简历_张熠璇_2Ps.pdf" class="btn btn-secondary" target="_blank">查看简历</a>
-                    </div> -->
-                </div>
-                <div class="hero-image">
-                    <div class="profile-card">
-                        <div class="profile-image">
-                            <img src="YixuanZhang.png" alt="张熠璇" class="profile-photo">
-                        </div>
-                        <div class="profile-info">
-                            <h3>张熠璇</h3>
-                            <p>东北大学</p>
-                            <div class="profile-links">
-                                <a href="https://scholar.google.com/citations?user=jwuZXIIAAAAJ&hl=zh-CN" target="_blank" rel="noopener noreferrer" title="Google Scholar">
-                                    <i class="fas fa-graduation-cap"></i>
-                                </a>
-                                <a href="mailto:202219095@stu.neu.edu.cn" title="邮箱">
-                                    <i class="fas fa-envelope"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <div class="main-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-profile">
+                <img src="YixuanZhang.png" alt="Yixuan Zhang">
+                <div class="sidebar-name">Yixuan Zhang</div>
+                <div class="sidebar-tagline">Computer Science Student</div>
             </div>
-        </div>
-        <div class="scroll-indicator">
-            <div class="scroll-down">
-                <i class="fas fa-chevron-down"></i>
-            </div>
-        </div>
-    </section>
-
-    <!-- 关于我部分 -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">关于我</h2>
-            <div class="about-content">
-                <div class="about-info">
-                    <div class="info-grid">
-                        <div class="info-item">
-                            <i class="fas fa-user"></i>
-                            <div class="info-content">
-                                <h3>基本信息</h3>
-                                <p><strong>姓名：</strong>张熠璇</p>
-                                <p><strong>出生年月：</strong>2005年5月</p>
-                                <p><strong>籍贯：</strong>湖南衡阳</p>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-graduation-cap"></i>
-                            <div class="info-content">
-                                <h3>教育背景</h3>
-                                <p><strong>学校：</strong>东北大学</p>
-                                <p><strong>专业：</strong>计算机科学与技术</p>
-                                <p><strong>学制：</strong>本科 (2022 - 2026)</p>
-                                <p><strong>GPA：</strong>91.95，Rank 1/118</p>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-language"></i>
-                            <div class="info-content">
-                                <h3>英语水平</h3>
-                                <p><strong>四级：</strong>667分</p>
-                                <p><strong>六级：</strong>643分</p>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-heart"></i>
-                            <div class="info-content">
-                                <h3>兴趣爱好</h3>
-                                <p>摄影（本校学生记者）</p>
-                                <p>阅读、写作、旅行</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="courses-section">
-                    <h3>主修课程成绩</h3>
-                    <div class="courses-grid">
-                        <div class="course-item">
-                            <div class="course-name">深度学习</div>
-                            <div class="course-score">99</div>
-                        </div>
-                        <div class="course-item">
-                            <div class="course-name">软件工程综合实践</div>
-                            <div class="course-score">100</div>
-                        </div>
-                        <div class="course-item">
-                            <div class="course-name">智能信息系统开发</div>
-                            <div class="course-score">99</div>
-                        </div>
-                        <div class="course-item">
-                            <div class="course-name">系统测试与质量管理</div>
-                            <div class="course-score">99</div>
-                        </div>
-                        <div class="course-item">
-                            <div class="course-name">数据结构</div>
-                            <div class="course-score">98</div>
-                        </div>
-                        <div class="course-item">
-                            <div class="course-name">C++程序设计基础</div>
-                            <div class="course-score">97</div>
-                        </div>
-                        <div class="course-item">
-                            <div class="course-name">计算机网络基础</div>
-                            <div class="course-score">95</div>
-                        </div>
-                        <div class="course-item">
-                            <div class="course-name">数据库原理</div>
-                            <div class="course-score">95</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 研究兴趣部分 -->
-    <section id="research" class="research">
-        <div class="container">
-            <h2 class="section-title">研究兴趣</h2>
-            <div class="research-areas">
-                <div class="research-area">
-                    <div class="research-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3>多模态情感计算</h3>
-                    <ul>
-                        <li>研究跨模态情绪识别中不同模态特征的对齐与统一表示方法</li>
-                        <li>应对数据中可能存在的模态缺失、个体差异所带来的跨用户和跨数据集性能退化问题</li>
-                        <li>在数据有限与隐私保护的前提下，发展可靠的情感建模策略</li>
-                    </ul>
-                </div>
-                <div class="research-area">
-                    <div class="research-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h3>情感交互</h3>
-                    <ul>
-                        <li>面向数字人、机器人等具身化交互系统及在线心理支持平台等虚拟系统，构建基于脑电、语音等多模态情绪识别结果的情感驱动交互机制</li>
-                        <li>探索针对不同情绪状态与任务目标下的响应生成策略，实现系统的自适应反馈以提升用户情感契合度</li>
-                        <li>结合认知负荷与个体差异等神经指标进行交互系统建模与优化，增强系统的人本性与交互有效性</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 论文发表部分 -->
-    <section id="publications" class="publications">
-        <div class="container">
-            <h2 class="section-title">发表论文</h2>
-            <div class="publications-list">
-                <div class="publication-item">
-                    <div class="publication-header">
-                        <i class="fas fa-file-alt"></i>
-                        <span class="publication-status under-review">Under Review</span>
-                    </div>
-                    <h3>The Impact of Teacher's Identity on Second Language Learners' Learning Effectiveness in an E-Learning Environment - A Preliminary Study</h3>
-                    <p class="authors">Qi Deng*, <strong>Yixuan Zhang*</strong>, et al. (2025)</p>
-                    <p class="journal">Frontiers in Psychology (Under Review)</p>
-                    <p class="note">*表示共同第一作者</p>
-                </div>
-                <div class="publication-item">
-                    <div class="publication-header">
-                        <i class="fas fa-file-alt"></i>
-                        <span class="publication-status published">Published</span>
-                    </div>
-                    <h3><a href="https://ieeexplore.ieee.org/document/10889539/" target="_blank" rel="noopener noreferrer">M3ADD: A Novel Benchmark for Physiology Signal-based Automatic Depression Detection with Multimodal Multitask Multievent Framework</a></h3>
-                    <p class="authors">Changzeng Fu, Kaifeng Su, Yikai Su, Fengkui Qian, <strong>Yixuan Zhang</strong>, et al. (2025)</p>
-                    <p class="journal">2025 IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP)</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 科研经历部分 -->
-    <section id="experience" class="experience">
-        <div class="container">
-            <h2 class="section-title">科研经历</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">2024.9 - 至今</div>
-                    <div class="timeline-content">
-                        <h3>大学生创新创业项目负责人</h3>
-                        <h4>神情"喵"算——基于深度学习的情感识别与陪伴机器人</h4>
-                        <p><strong>项目描述：</strong>作为项目负责人，组织进行机器人的研究设计以及硬件开发，主导论文、专利等成果发表工作</p>
-                        <p><strong>我的职责：</strong>开发并优化智能化情感识别分析系统，设计情感响应策略及人机交互机制</p>
-                        <div class="achievements">
-                            <span class="achievement">制作完成机器人实物并实现期望功能</span>
-                            <span class="achievement">获得校级重点项目立项</span>
-                            <span class="achievement">近期申请发明专利</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">2025.3 - 至今</div>
-                    <div class="timeline-content">
-                        <h3>实验室课题负责人</h3>
-                        <h4>网络学习环境下数字人教师身份对二语学习者学习效果影响的探究</h4>
-                        <p><strong>项目描述：</strong>作为项目负责人，主导小组成员进行本项目设计及实验等全流程工作</p>
-                        <p><strong>我的职责：</strong>负责项目实验设计，基于换脸换声、TTS 等技术进行数字人教学系统准备，以及结果分析</p>
-                        <div class="achievements">
-                            <span class="achievement">以共同第一作者投稿论文至 Frontiers in Psychology</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-date">2024.5 - 2024.11</div>
-                    <div class="timeline-content">
-                        <h3>实验室课题成员</h3>
-                        <h4>基于多模态多任务多事件框架的生理信号自动抑郁检测系统</h4>
-                        <p><strong>项目描述：</strong>作为项目成员，参与本项目的系统开发和论文撰写工作</p>
-                        <p><strong>我的职责：</strong>负责设计针对验证多模态抑郁检测系统效果的实验架构，并参与模型优化工作</p>
-                        <div class="achievements">
-                            <span class="achievement">参与 Pipeline 设计</span>
-                            <span class="achievement">完成模型训练数据收集</span>
-                            <span class="achievement">论文发表于 ICASSP </span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-date">2024.4 - 2024.10</div>
-                    <div class="timeline-content">
-                        <h3>实验室课题成员</h3>
-                        <h4>支持匿名虚拟身份交互的在线心理咨询系统</h4>
-                        <p><strong>项目描述：</strong>作为项目成员，参与本项目的实验测试和专利申请工作</p>
-                        <p><strong>我的职责：</strong>负责对系统的实验调试和结果分析，并作为实验助理进行超 30 人次的实验</p>
-                        <div class="achievements">
-                            <span class="achievement">完成对于本项目系统的应用与测试</span>
-                            <span class="achievement">成功进行项目实验</span>
-                            <span class="achievement">相关发明专利已公开</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 实习经历部分 -->
-    <section id="internship" class="internship">
-        <div class="container">
-            <h2 class="section-title">实习经历</h2>
-            <div class="internship-list">
-                <div class="internship-item">
-                    <div class="internship-header">
-                        <div class="company-info">
-                            <h3>HACI实验室，东北大学</h3>
-                            <p class="position">研究助理 - 人机交互 | 数字人 | 情感识别</p>
-                        </div>
-                        <div class="date">2024.3 – 至今</div>
-                    </div>
-                    <div class="internship-content">
-                        <p><strong>导师：</strong><a href="https://sstc.neuq.edu.cn/info/1131/2662.htm" target="_blank" rel="noopener noreferrer">Changzeng Fu</a></p>
-                        <ul>
-                            <li>主导 2 个课题方向，参与 2 个项目，发表（在投）论文 2 篇，申请 1 项发明专利</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="internship-item">
-                    <div class="internship-header">
-                        <div class="company-info">
-                            <h3>北京科迪诺亿科技有限公司</h3>
-                            <p class="position">实习生 - 后端开发</p>
-                        </div>
-                        <div class="date">2023.7 – 2023.11</div>
-                    </div>
-                    <div class="internship-content">
-                        <ul>
-                            <li>参与云课堂课程管理系统项目，负责基于 Java 的后端开发</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 成就奖项部分 -->
-    <section id="achievements" class="achievements">
-        <div class="container">
-            <h2 class="section-title">成就与荣誉</h2>
             
-            <div class="achievements-grid">
-                <div class="achievement-category">
-                    <h3><i class="fas fa-trophy"></i> 竞赛奖项</h3>
-                    <div class="awards-list">
-                        <div class="award-item">
-                            <span class="award-name">全国大学生英语竞赛</span>
-                            <span class="award-level national">国家级特等奖</span>
-                        </div>
-                        <div class="award-item">
-                            <span class="award-name">"外研社·国才杯"全国大学生外语能力大赛</span>
-                            <span class="award-level national">国家级铜奖</span>
-                        </div>
-                        <div class="award-item">
-                            <span class="award-name">国际大学生数学建模竞赛</span>
-                            <span class="award-level national">国家级三等奖</span>
-                        </div>
-                        <div class="award-item">
-                            <span class="award-name">"挑战杯"中国大学生创业计划竞赛</span>
-                            <span class="award-level provincial">省级一等奖</span>
-                        </div>
-                        <div class="award-item">
-                            <span class="award-name">中国国际大学生创新大赛</span>
-                            <span class="award-level provincial">省级三等奖</span>
-                        </div>
-                        <div class="award-item">
-                            <span class="award-name">"挑战杯"大学生课外学术科技作品竞赛</span>
-                            <span class="award-level provincial">省级三等奖</span>
-                        </div>
-                    </div>
+            <div class="sidebar-contact">
+                <div class="contact-item">
+                    <span class="contact-icon">📧</span>
+                    <a href="mailto:202219095@stu.neu.edu.cn">Email</a>
                 </div>
-
-                <div class="achievement-category">
-                    <h3><i class="fas fa-graduation-cap"></i> 奖学金</h3>
-                    <div class="awards-list">
-                        <div class="award-item">
-                            <span class="award-name"><strong>2022-2023年度 本专科生国家奖学金</strong></span>
-                        </div>
-                        <div class="award-item">
-                            <span class="award-name"><strong>2023-2024年度 本专科生国家奖学金</strong></span>
-                        </div>
-                        <div class="award-item">
-                            <span class="award-name">2023年度 校级创新创业奖学金</span>
-                        </div>
-                        <div class="award-item">
-                            <span class="award-name">2024年度 校级创新创业奖学金</span>
-                        </div>
-                        <div class="award-item">
-                            <span class="award-name">2022-2023学年 校级单项奖学金</span>
-                        </div>
-                        <div class="award-item">
-                            <span class="award-name">2023-2024学年 校级单项奖学金</span>
-                        </div>
-                        <div class="award-item">
-                            <span class="award-name">2024-2025学年 校级二等奖学金</span>
-                        </div>
-                    </div>
+                <div class="contact-item">
+                    <span class="contact-icon">🎓</span>
+                    <a href="https://scholar.google.com/citations?user=jwuZXIIAAAAJ&hl=zh-CN">Google Scholar</a>
                 </div>
+                <div class="contact-item">
+                    <span class="contact-icon">🏫</span>
+                    <a href="https://www.neu.edu.cn/">Northeastern University</a>
+                </div>
+            </div>
+        </div>
 
-                <div class="achievement-category">
-                    <h3><i class="fas fa-medal"></i> 荣誉称号</h3>
-                    <div class="awards-list">
-                        <div class="award-item">
-                            <span class="award-name"><strong>2024-2025学年 河北省三好学生</strong></span>
-                        </div>
-                        <div class="award-item">
-                            <span class="award-name">2022-2023学年 校级"三好学生标兵"</span>
-                        </div>
-                        <div class="award-item">
-                            <span class="award-name">2023-2024学年 校级"三好学生标兵"</span>
-                        </div>
-                        <div class="award-item">
-                            <span class="award-name">2023年度 校级"优秀团员标兵"</span>
-                        </div>
-                        <div class="award-item">
-                            <span class="award-name">2024年度 校级"优秀团员标兵"</span>
-                        </div>
-                        <div class="award-item">
-                            <span class="award-name">2022-2023学年 校级"优秀学生记者"</span>
-                        </div>
-                        <div class="award-item">
-                            <span class="award-name">2023-2024学年 校级"优秀学生干部"</span>
+        <div class="main-content">
+            <!-- About Me -->
+            <div class="section" id="about">
+                <h2>About Me</h2>
+                <p>Hi 👋, I am Yixuan Zhang, a fourth-year undergraduate student majoring in Computer Science and Technology at Northeastern University (NEU), where I am advised by <a href="#" style="color: #3182ce; text-decoration: none;">Dr. Changzeng Fu</a> at the <a href="#" style="color: #3182ce; text-decoration: none;">HACI Lab</a>.
+                    I will be joining <a href="https://www.tbsi.edu.cn/" style="color: #3182ce; text-decoration: none;">Tsinghua-Berkeley Shenzhen Institute (TBSI)</a> as an incoming MPhil student, supervised by <a href="https://sites.google.com/view/slhuang/home" style="color: #3182ce; text-decoration: none;">Prof. Shao-Lun Huang</a>.</p>
+                
+                <p>My research interests include <strong>Multimodal Affective Computing</strong>, <strong>Human-Computer Interaction</strong>, and <strong>Emotion Recognition</strong>.</p>
+            </div>
+
+            <!-- News -->
+            <div class="section" id="news">
+                <h2>News</h2>
+                <ul>
+                    <li><strong>2025.09:</strong> 🎉🎉 Will be joining <strong>Tsinghua-Berkeley Shenzhen Institute (TBSI)</strong> as an incoming MPhil student!</li>
+                </ul>
+            </div>
+
+            <!-- Education -->
+            <div class="section" id="education">
+                <h2>Education</h2>
+                <div class="education-timeline">
+                    <div class="education-card">
+                        <div class="education-card-header">
+                            <div class="education-icon">🎓</div>
+                            <div class="education-meta">
+                                <div class="education-school"><strong>Northeastern University (NEU)</strong></div>
+                                <div class="education-degree">B.S. in Computer Science and Technology - rank 1/118</div>
+                            </div>
+                            <div class="education-time">2022 – 2026 (Expected)</div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- 专业技能部分 -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title">专业技能</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3><i class="fas fa-code"></i> 编程语言</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">C++</span>
-                        <span class="skill-tag">C</span>
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">Matlab</span>
-                        <span class="skill-tag">Bash</span>
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">HTML</span>
+            <!-- Publications -->
+            <div class="section" id="publications">
+                <h2>Publications</h2>
+                <div class="publication">
+                    <div class="publication-content">
+                        <div class="publication-text">
+                            <div class="publication-title">
+                                The Impact of Teacher's Identity on Second Language Learners' Learning Effectiveness in an E-Learning Environment - A Preliminary Study
+                            </div>
+                            <div class="publication-authors">Qi Deng*, <strong>Yixuan Zhang*</strong>, et al.</div>
+                            <div class="publication-conference frontiers">Frontiers in Psychology (Under Review)</div>
+                            <div class="publication-links">
+                                <a href="#">Paper</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="skill-category">
-                    <h3><i class="fas fa-brain"></i> 框架</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">PyTorch</span>
-                        <span class="skill-tag">TensorFlow</span>
-                        <span class="skill-tag">Keras</span>
-                        <span class="skill-tag">Scikit-learn</span>
+                <div class="publication">
+                    <div class="publication-content">
+                        <div class="publication-text">
+                            <div class="publication-title">
+                                M3ADD: A Novel Benchmark for Physiology Signal-based Automatic Depression Detection with Multimodal Multitask Multievent Framework
+                            </div>
+                            <div class="publication-authors">Changzeng Fu, Kaifeng Su, Yikai Su, Fengkui Qian, <strong>Yixuan Zhang</strong>, et al.</div>
+                            <div class="publication-conference icassp">2025 IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP)</div>
+                            <div class="publication-links">
+                                <a href="#">Paper</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="skill-category">
-                    <h3><i class="fas fa-tools"></i> 工具</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">LaTeX</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Microsoft Office</span>
-                        <span class="skill-tag">Photoshop</span>
-                        <span class="skill-tag">Lightroom</span>
-                        <span class="skill-tag">Canva</span>
-                        <span class="skill-tag">Draw.io</span>
+            <!-- Awards -->
+            <div class="section" id="awards">
+                <h2>Awards & Scholarships</h2>
+                
+                <h3>Scholarships</h3>
+                <ul>
+                    <li><strong>National Scholarship</strong> – 2022-2023, 2023-2024 Academic Years</li>
+                    <li>Innovation and Entrepreneurship Scholarship – 2023, 2024</li>
+                    <li>Single-Item Scholarship – 2022-2023, 2023-2024 Academic Years</li>
+                    <li>Second-Class Scholarship – 2024-2025 Academic Year</li>
+                </ul>
+
+                <h3>Competitions</h3>
+                <ul>
+                    <li><strong>National Special Prize</strong> – National English Competition for College Students</li>
+                    <li>National Bronze Award – "FLTRP Cup" National English Competency Competition</li>
+                    <li>National Third Prize – International Mathematical Contest in Modeling</li>
+                    <li>Provincial First Prize – National Undergraduate Entrepreneurship Competition</li>
+                    <li>Provincial Third Prize – China International College Students' Innovation Competition</li>
+                    <li>Provincial Third Prize – Undergraduate Academic and Technological Innovation Contest</li>
+                </ul>
+
+                <h3>Honors</h3>
+                <ul>
+                    <li><strong>Province Outstanding Student</strong> – 2024-2025 Academic Year</li>
+                    <li>Outstanding Student Pacesetter – 2022-2023, 2023-2024 Academic Years</li>
+                    <li>Outstanding Youth League Member Pacesetter – 2023, 2024</li>
+                    <li>Outstanding Student Reporter – 2022-2023 Academic Year</li>
+                    <li>Outstanding Student Cadre – 2023-2024 Academic Year</li>
+                </ul>
+            </div>
+
+            <!-- Experience -->
+            <div class="section" id="experience">
+                <h2>Research Experience</h2>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="experience-title">Multimodal Multitask Multievent Depression Detection System</div>
+                        <div class="experience-period">2024.5 - 2024.11</div>
+                    </div>
+                    <div class="experience-organization">Lab Project</div>
+                    <div class="experience-description">
+                        <strong>Description:</strong> Served as a project member, participated in data collection and paper writing.<br>
+                        <strong>My Responsibility:</strong> Responsible for multimodal signal acquisition, processing, and system design.<br>
+                        <strong>Achievement:</strong> Completed multimodal dataset construction with paper published in ICASSP.
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="experience-title">Digital Human Teacher Identity on Second Language Learning Outcomes</div>
+                        <div class="experience-period">2025.3 - Present</div>
+                    </div>
+                    <div class="experience-organization">Lab Project</div>
+                    <div class="experience-description">
+                        <strong>Description:</strong> Served as project leader, coordinated team members through design and experimental processes.<br>
+                        <strong>My Responsibility:</strong> Managed interaction experiments, data analysis, and paper writing.<br>
+                        <strong>Achievement:</strong> Submitted paper to Frontiers in Psychology as co-first author.
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="experience-title">Deep Learning-Based Bionic Companion Robot</div>
+                        <div class="experience-period">2024.9 - Present</div>
+                    </div>
+                    <div class="experience-organization">Innovation Project</div>
+                    <div class="experience-description">
+                        <strong>Description:</strong> Served as project leader, organized robot interaction design and physical development.<br>
+                        <strong>My Responsibility:</strong> Designed emotional response functions and human-robot interaction strategies.<br>
+                        <strong>Achievement:</strong> Completed robot prototype with expected functions, recognized as Provincial Key innovation project with provincial competition award.
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="experience-title">Mental Health Counseling System with Anonymous Virtual Identity</div>
+                        <div class="experience-period">2024.4 - 2024.10</div>
+                    </div>
+                    <div class="experience-organization">Lab Project</div>
+                    <div class="experience-description">
+                        <strong>Description:</strong> Served as project member, participated in system testing and patent application.<br>
+                        <strong>My Responsibility:</strong> Conducted system testing and assisted with experiments and result analysis.<br>
+                        <strong>Achievement:</strong> Completed experiments and analysis with patent published.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills -->
+            <div class="section" id="skills">
+                <h2>Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Programming Languages</h3>
+                        <ul class="skill-list">
+                            <li>Python</li>
+                            <li>Java</li>
+                            <li>C++</li>
+                            <li>JavaScript</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Machine Learning</h3>
+                        <ul class="skill-list">
+                            <li>PyTorch</li>
+                            <li>TensorFlow</li>
+                            <li>Scikit-learn</li>
+                            <li>OpenCV</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Research Tools</h3>
+                        <ul class="skill-list">
+                            <li>LaTeX</li>
+                            <li>MATLAB</li>
+                            <li>R</li>
+                            <li>Git</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- 页脚 -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-text">
-                    <p>&copy; 2024 Yixuan Zhang. All rights reserved.</p>
-                </div>
-                <div class="footer-links">
-                    <a href="#home">返回顶部</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    </div>
 
     <script src="script.js"></script>
 </body>
-</html> 
+</html>
