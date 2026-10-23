@@ -1,10 +1,163 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>Yixuan Zhang</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- This base layout is used only when the original style.css is unavailable. -->
+    <style id="base-layout-fallback">
+        * { box-sizing: border-box; }
+        body { margin: 0; background: #fff; color: #303b49; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; font-size: 15px; line-height: 1.8; }
+        a { color: #3182ce; text-decoration: none; }
+        strong { font-weight: 600; }
+        .top-nav { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.97); border-bottom: 1px solid #e8edf3; }
+        .top-nav-container { max-width: 1120px; min-height: 68px; padding: 0 24px; margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+        .top-nav-brand { color: #25394e; font-size: 17px; font-weight: 600; white-space: nowrap; }
+        .top-nav-links { display: flex; gap: 25px; }
+        .top-nav-links a { color: #617081; font-size: 13px; min-height: 44px; display: flex; align-items: center; }
+        .main-container { width: min(1120px, calc(100% - 48px)); margin: 38px auto 60px; display: grid; grid-template-columns: 220px minmax(0,1fr); column-gap: 48px; align-items: start; }
+        .sidebar { position: sticky; top: 104px; padding: 10px 8px 18px; }
+        .sidebar-profile { text-align: center; }
+        .sidebar-profile img { display: block; width: 146px; height: 146px; border-radius: 50%; object-fit: cover; margin: 0 auto 21px; }
+        .sidebar-name { margin-top: 17px; font-size: 23px; line-height: 1.35; color: #293b4e; font-weight: 600; }
+        .sidebar-tagline { margin-top: 9px; color: #6d7b8a; font-size: 12px; line-height: 1.8; }
+        .sidebar-contact { margin: 22px auto 0; width: fit-content; min-width: 154px; }
+        .contact-item { display: flex; align-items: center; gap: 11px; min-height: 39px; font-size: 13px; }
+        .contact-icon { width: 20px; font-size: 15px; text-align: center; }
+        .contact-item a { color: #52687e; }
+        .main-content { min-width: 0; }
+        .section { margin-bottom: 35px; }
+        .section:last-child { margin-bottom: 0; }
+        .section h2 { margin: 0 0 18px; padding-bottom: 9px; font-size: 24px; font-weight: 600; line-height: 1.45; color: #273e55; border-bottom: 1px solid #e5ebf2; position: relative; }
+        .section h2::after { content: ""; position: absolute; left: 0; bottom: -1px; width: 31px; height: 2px; background: #3182ce; border-radius: 2px; }
+        .section p { margin: 0 0 14px; }
+        .section p:last-child { margin-bottom: 0; }
+        .section h3 { margin: 22px 0 10px; font-size: 16px; font-weight: 600; color: #40576e; }
+        .section ul { margin: 0; padding-left: 21px; }
+        .section li { padding-left: 2px; margin-bottom: 8px; }
+        .section li::marker { color: #86a9cd; }
+        .education-card { border: 1px solid #e7edf4; background: #fcfdff; border-radius: 7px; padding: 17px 18px; }
+        .education-card + .education-card { margin-top: 12px; }
+        .education-card-header { display: grid; grid-template-columns: 32px minmax(0,1fr) auto; gap: 13px; align-items: start; }
+        .education-icon { width: 32px; height: 32px; border-radius: 7px; display: grid; place-items: center; background: #eef4fb; font-size: 18px; margin-top: 2px; }
+        .education-school { color: #2d4258; font-size: 16px; margin-bottom: 4px; }
+        .education-degree { font-size: 13px; color: #667487; line-height: 1.8; }
+        .education-time { font-size: 11px; color: #778697; padding-top: 4px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+        .publication { padding: 3px 0 20px; }
+        .publication + .publication { border-top: 1px solid #edf0f5; padding-top: 22px; }
+        .publication:last-child { padding-bottom: 0; }
+        .publication-title { font-size: 17px; line-height: 1.65; font-weight: 600; color: #2e4359; margin-bottom: 8px; }
+        .publication-title sup { font-size: .65em; }
+        .publication-authors { font-size: 13px; line-height: 1.9; color: #6e7b8c; }
+        .publication-authors strong { color: #354b63; }
+        .publication-conference { font-size: 12px; line-height: 1.75; margin-top: 6px; color: #547ca6; }
+        .publication-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 13px; }
+        .publication-links a { display: inline-flex; align-items: center; min-height: 34px; font-size: 12px; line-height: 1.3; padding: 6px 11px; border: 1px solid #d9e6f4; border-radius: 4px; background: #fbfdff; }
+        #awards li { font-size: 14px; line-height: 1.85; }
+        @media (max-width: 1000px) {
+            .main-container { grid-template-columns: 198px minmax(0,1fr); column-gap: 32px; }
+            .education-card-header { grid-template-columns: 30px minmax(0,1fr); gap: 0 12px; }
+            .education-time { grid-column: 2; grid-row: 1; margin: 1px 0 5px; padding: 0; }
+            .education-meta { grid-column: 2; grid-row: 2; }
+            .education-icon { grid-row: 1 / span 2; }
+        }
+        @media (max-width: 720px) {
+            .top-nav-container { flex-wrap: wrap; gap: 0; padding: 10px 20px 0; }
+            .top-nav-brand { font-size: 16px; }
+            .top-nav-links { width: 100%; justify-content: space-between; gap: 10px; }
+            .top-nav-links a { font-size: 12px; }
+            .main-container { width: calc(100% - 40px); grid-template-columns: 1fr; margin-top: 26px; gap: 25px; }
+            .sidebar { position: static; display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 18px; align-items: center; border-bottom: 1px solid #e8edf3; padding: 0 0 25px; }
+            .sidebar-profile { text-align: left; }
+            .sidebar-profile img { width: 100px; height: 100px; margin: 0 0 15px; }
+            .sidebar-name { margin-top: 12px; font-size: 22px; }
+            .sidebar-tagline { max-width: 230px; }
+            .sidebar-contact { margin: 0; min-width: 118px; }
+            .contact-item { min-height: 44px; font-size: 12px; gap: 7px; }
+            .section { margin-bottom: 29px; }
+            .section h2 { font-size: 22px; margin-bottom: 15px; }
+            .education-card { padding: 14px; }
+            .publication-title { font-size: 16px; }
+            .publication-links a { min-height: 40px; }
+            body { font-size: 14px; }
+        }
+        @media (max-width: 360px) {
+            .top-nav-container { padding-inline: 16px; }
+            .top-nav-brand { font-size: 15px; }
+            .top-nav-links a { font-size: 11px; }
+            .main-container { width: calc(100% - 32px); }
+            .sidebar { gap: 10px; }
+            .sidebar-name { font-size: 19px; }
+            .sidebar-tagline { font-size: 11px; }
+            .sidebar-contact { min-width: 105px; }
+            .contact-item { font-size: 11px; }
+        }
+    </style>
+    <link rel="stylesheet" href="style.css" onload="document.getElementById('base-layout-fallback').media='not all'">
+    <!-- Small finishing touches; the original stylesheet remains authoritative. -->
+    <style>
+        html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+        .section { scroll-margin-top: 16px; }
+        a:focus-visible { outline: 2px solid #3182ce; outline-offset: 4px; border-radius: 2px; }
+        .top-nav-links a, .contact-item a, .publication-links a { transition: color .16s ease, background-color .16s ease, border-color .16s ease; }
+        .top-nav-links a:hover, .contact-item a:hover { color: #3182ce; }
+        .section p a:hover, .education-degree a:hover { text-decoration: underline !important; text-underline-offset: 3px; }
+        .publication-links a:hover { background-color: #edf5fe; border-color: #b9d4f0; }
+        .education-card { transition: box-shadow .18s ease; }
+        .education-card:hover { box-shadow: 0 3px 13px rgba(44,83,127,.055); }
+        .sidebar-profile img { box-shadow: 0 0 0 4px #fff, 0 0 0 5px #e6eef7; }
+        .season-note { width: 172px; margin: 27px auto 0; }
+        .season-note svg { display: block; width: 100%; height: auto; overflow: visible; }
+        .film-toggle { display: block; width: 100%; margin: 0; padding: 0; border: 0; border-radius: 6px; background: transparent; cursor: pointer; appearance: none; -webkit-tap-highlight-color: transparent; }
+        .film-toggle:focus-visible { outline: 2px solid #3182ce; outline-offset: 4px; }
+        .film-toggle:disabled { cursor: default; opacity: 1; }
+        .film-play-symbol { display: none; }
+        .film-toggle[data-paused="true"] .film-pause-symbol { display: none; }
+        .film-toggle[data-paused="true"] .film-play-symbol { display: block; }
+        .film-toggle[data-paused="true"] svg * { animation-play-state: paused !important; }
+        .film-sky-glow { animation: film-sky-breathe 14s ease-in-out infinite; }
+        .film-cloud { transform-box: view-box; }
+        .film-cloud-near { animation: film-cloud-drift 36s linear -8s infinite; }
+        .film-cloud-far { animation: film-cloud-drift 46s linear -29s infinite; }
+        .film-cloud-edge { animation: film-cloud-drift 52s linear -15s infinite; }
+        .film-autumn-leaf { transform-box: view-box; transform-origin: 38px 46px; transition: transform .55s ease; }
+        .season-note:hover .film-autumn-leaf, .film-toggle:focus-visible .film-autumn-leaf { transform: rotate(12deg) translateY(1px); }
+        .film-chick { transform-box: view-box; transform-origin: 66px 68px; animation: film-chick-hop 4.4s ease-in-out infinite; }
+        .film-chick-shadow { transform-box: fill-box; transform-origin: center; animation: film-chick-shadow 4.4s ease-in-out infinite; }
+        .film-chick-wing { transform-box: view-box; transform-origin: 59px 54px; animation: film-wing-flutter 4.4s ease-in-out infinite; }
+        .film-chick-eye { transform-box: fill-box; transform-origin: center; animation: film-blink 5.3s linear -2s infinite; }
+        .film-puppy-tail { transform-box: view-box; transform-origin: 126px 60px; animation: film-tail-wag 1.05s ease-in-out infinite; }
+        .film-puppy-body { transform-box: view-box; transform-origin: 114px 68px; animation: film-puppy-breathe 3.8s ease-in-out infinite; }
+        .film-puppy-head { transform-box: view-box; transform-origin: 113px 54px; animation: film-head-tilt 7.2s ease-in-out infinite; }
+        .film-puppy-eyes { transform-box: fill-box; transform-origin: center; animation: film-blink 5.8s linear infinite; }
+        @keyframes film-sky-breathe { 0%,100% { opacity: .08; } 50% { opacity: .28; } }
+        @keyframes film-cloud-drift { from { transform: translateX(-180px); } to { transform: translateX(0); } }
+        @keyframes film-chick-hop {
+            0%,26%,48%,100% { transform: translateY(0) scale(1); }
+            31% { transform: translateY(.6px) scale(1.04,.95); }
+            37% { transform: translateY(-3px) scale(.98,1.03); }
+            43% { transform: translateY(.5px) scale(1.035,.96); }
+        }
+        @keyframes film-chick-shadow { 0%,26%,48%,100% { transform: scaleX(1); opacity: .23; } 37% { transform: scaleX(.75); opacity: .15; } }
+        @keyframes film-wing-flutter { 0%,27%,49%,100% { transform: rotate(0); } 33%,41% { transform: rotate(-22deg); } 37%,45% { transform: rotate(8deg); } }
+        @keyframes film-blink { 0%,45%,49%,100% { transform: scaleY(1); } 47% { transform: scaleY(.12); } }
+        @keyframes film-tail-wag { 0%,100% { transform: rotate(-10deg); } 50% { transform: rotate(12deg); } }
+        @keyframes film-puppy-breathe { 0%,100% { transform: scaleY(1); } 50% { transform: scaleY(1.025); } }
+        @keyframes film-head-tilt { 0%,18%,100% { transform: rotate(0); } 32%,49% { transform: rotate(-5deg); } 66%,78% { transform: rotate(3deg); } }
+        .photo-fallback { width: 146px; height: 146px; display: grid; place-items: center; border-radius: 50%; margin: 0 auto 21px; background: #eff5fb; color: #5b80a5; font-size: 43px; font-weight: 500; box-shadow: 0 0 0 4px #fff, 0 0 0 5px #e6eef7; }
+        [hidden] { display: none !important; }
+        @media (max-width: 720px) {
+            html { scroll-padding-top: 115px; }
+            .photo-fallback { width: 100px; height: 100px; margin: 0 0 15px; font-size: 32px; }
+            .season-note { grid-column: 1 / -1; width: 146px; margin: 3px auto 0; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .top-nav-links a, .contact-item a, .publication-links a, .education-card { transition: none; }
+            .season-note svg * { animation: none !important; transition: none !important; }
+            .film-pause-symbol, .film-play-symbol { display: none !important; }
+        }
+    </style>
 </head>
 <body>
     <!-- Top Navigation -->
@@ -17,8 +170,6 @@
                 <a href="#education">Education</a>
                 <a href="#publications">Publications</a>
                 <a href="#awards">Awards</a>
-                <a href="#experience">Experience</a>
-                <a href="#skills">Skills</a>
             </div>
         </div>
     </nav>
@@ -27,24 +178,104 @@
         <!-- Sidebar -->
         <div class="sidebar">
             <div class="sidebar-profile">
-                <img src="YixuanZhang.png" alt="Yixuan Zhang">
+                <img src="YixuanZhang.png" alt="Yixuan Zhang" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+                <div class="photo-fallback" hidden aria-hidden="true">YZ</div>
                 <div class="sidebar-name">Yixuan Zhang</div>
-                <div class="sidebar-tagline">Computer Science Student</div>
+                <div class="sidebar-tagline">Master's Student · Tsinghua SIGS</div>
             </div>
             
             <div class="sidebar-contact">
                 <div class="contact-item">
                     <span class="contact-icon">📧</span>
-                    <a href="mailto:202219095@stu.neu.edu.cn">Email</a>
+                    <a href="mailto:yxzhang26@mails.tsinghua.edu.cn">Email</a>
                 </div>
                 <div class="contact-item">
                     <span class="contact-icon">🎓</span>
-                    <a href="https://scholar.google.com/citations?user=jwuZXIIAAAAJ&hl=zh-CN">Google Scholar</a>
+                    <a href="https://scholar.google.com/citations?user=jwuZXIIAAAAJ&amp;hl=zh-CN">Google Scholar</a>
                 </div>
                 <div class="contact-item">
                     <span class="contact-icon">🏫</span>
-                    <a href="https://www.neu.edu.cn/">Northeastern University</a>
+                    <a href="https://www.sigs.tsinghua.edu.cn/en/">Tsinghua SIGS</a>
                 </div>
+            </div>
+            <div class="season-note">
+                <button class="film-toggle" type="button" aria-label="Pause decorative animation" data-paused="false" title="Pause animation">
+                    <svg viewBox="0 0 180 94" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                        <defs>
+                            <clipPath id="sidebar-film-window"><rect x="12" y="20" width="156" height="54" rx="2"/></clipPath>
+                            <linearGradient id="sidebar-film-sky" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0" stop-color="#c8e3f6"/><stop offset="1" stop-color="#edf7fc"/>
+                            </linearGradient>
+                        </defs>
+                        <rect x="2" y="5" width="176" height="84" rx="5" fill="#f7fafc" stroke="#d9e5ef"/>
+                        <g fill="#d5e3ee">
+                            <rect x="12" y="11" width="9" height="4" rx="1"/><rect x="36" y="11" width="9" height="4" rx="1"/><rect x="60" y="11" width="9" height="4" rx="1"/><rect x="84" y="11" width="9" height="4" rx="1"/><rect x="108" y="11" width="9" height="4" rx="1"/><rect x="132" y="11" width="9" height="4" rx="1"/><rect x="156" y="11" width="9" height="4" rx="1"/>
+                            <rect x="12" y="79" width="9" height="4" rx="1"/><rect x="36" y="79" width="9" height="4" rx="1"/><rect x="60" y="79" width="9" height="4" rx="1"/><rect x="84" y="79" width="9" height="4" rx="1"/><rect x="108" y="79" width="9" height="4" rx="1"/><rect x="132" y="79" width="9" height="4" rx="1"/>
+                        </g>
+                        <g clip-path="url(#sidebar-film-window)">
+                            <rect x="12" y="20" width="156" height="54" fill="url(#sidebar-film-sky)"/>
+                            <rect class="film-sky-glow" x="12" y="20" width="156" height="54" fill="#fff" opacity=".12"/>
+                            <g fill="#fff">
+                                <g class="film-cloud film-cloud-near">
+                                    <path d="M23 34c-4 0-5-6 0-7 1-5 8-6 10-1 5-3 11 1 10 5 4-1 7 3 3 4H23Z"/>
+                                    <path transform="translate(180 0)" d="M23 34c-4 0-5-6 0-7 1-5 8-6 10-1 5-3 11 1 10 5 4-1 7 3 3 4H23Z"/>
+                                </g>
+                                <g class="film-cloud film-cloud-far" opacity=".94">
+                                    <path d="M96 30c-3 0-4-4-1-5 0-4 6-6 8-2 4-3 9 0 9 3 4-1 6 4 2 4H96Z"/>
+                                    <path transform="translate(180 0)" d="M96 30c-3 0-4-4-1-5 0-4 6-6 8-2 4-3 9 0 9 3 4-1 6 4 2 4H96Z"/>
+                                </g>
+                                <g class="film-cloud film-cloud-edge" opacity=".8">
+                                    <path d="M145 41c-4-1-4-5 0-6 1-4 6-5 8-1 5-2 8 1 8 4 4-1 6 3 2 4h-18Z"/>
+                                    <path transform="translate(180 0)" d="M145 41c-4-1-4-5 0-6 1-4 6-5 8-1 5-2 8 1 8 4 4-1 6 3 2 4h-18Z"/>
+                                </g>
+                            </g>
+                            <path d="M12 65c32-4 48 1 75-1s48-4 81 0v11H12Z" fill="#fcf7e9"/>
+                            <ellipse class="film-chick-shadow" cx="66" cy="68.5" rx="11" ry="1.5" fill="#c4c5b5" opacity=".23"/>
+                            <ellipse cx="114" cy="69" rx="19" ry="1.6" fill="#aabdbd" opacity=".2"/>
+                            <g class="film-autumn-leaf" stroke-linecap="round">
+                                <path d="M32 45c6-7 12-6 15-7-1 8-5 13-11 12-3 0-4-2-4-5Z" fill="#efcc80"/>
+                                <path d="m31 53 12-11" fill="none" stroke="#ba985c" stroke-width=".9"/>
+                            </g>
+                            <g class="film-chick" stroke="#bc9453" stroke-width="1.05" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M62 63v5m7-5v5m-9 0h4m3 0h4" fill="none"/>
+                                <path d="m58 52-5-5 1 8" fill="#f1d184"/>
+                                <path d="M78 55c0 7-5 12-12 12s-12-5-12-12 5-12 12-12 12 5 12 12Z" fill="#f8df91"/>
+                                <path d="M64 43q-2-5 1-5m1 5q1-4 3-4" fill="none"/>
+                                <path class="film-chick-wing" d="M58 54c1-2 7-2 8 1-1 5-6 6-8-1Z" fill="#f0cc73"/>
+                                <path d="m77 51 6 2.7-6 2.3" fill="#e4ac64" stroke="#cb9757"/>
+                                <g class="film-chick-eye" fill="#4e5960" stroke="none"><ellipse cx="72" cy="49.5" rx="1.35" ry="1.7"/><circle cx="72.4" cy="49" r=".4" fill="#fff"/></g>
+                                <ellipse cx="73" cy="55.5" rx="2" ry="1" fill="#ecb796" opacity=".65" stroke="none"/>
+                            </g>
+                            <g class="film-puppy" stroke="#977d62" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+                                <path class="film-puppy-tail" d="M126 61c6 2 11-1 10-6 0-2-3-2-4 0-1 3-4 3-6 3Z" fill="#e6c796"/>
+                                <path class="film-puppy-body" d="M104 51c-4 3-7 12-5 15 2 3 7 3 10 2h10c4 1 9-1 9-4 0-4-3-10-6-13Z" fill="#f6e8cf"/>
+                                <path d="M106 56c-1 3-1 7 0 10m12-10c1 3 1 7 0 10" fill="none"/>
+                                <path d="M105 64c-5 0-7 5-3 5h8c3-1 1-5-5-5Zm16 0c-5 0-7 5-3 5h8c3-1 1-5-5-5Z" fill="#fff6e4"/>
+                                <path d="M103 67v1m3-1v1m13-1v1m3-1v1" fill="none" stroke="#c0a784" stroke-width=".7"/>
+                                <g class="film-puppy-head">
+                                    <path d="M104 50q10 5 19-1l-1 5q-9 5-17-1Z" fill="#7da8c7" stroke="#6d98b8"/>
+                                    <circle cx="114" cy="54.7" r="1.5" fill="#ecd49b" stroke="#bdab80" stroke-width=".7"/>
+                                    <path d="M101 36c-6-3-9 3-8 10 0 5 3 9 6 7 3-3 5-12 2-17Z" fill="#d9b78b"/>
+                                    <path d="M124 36c5-4 10 2 9 9 0 6-3 10-6 8-4-3-6-12-3-17Z" fill="#d9b78b"/>
+                                    <path d="M101 36c4-6 18-6 23 0 3 4 4 10 1 14-2 4-7 6-12 6s-10-2-12-6c-3-4-3-10 0-14Z" fill="#fff6e7"/>
+                                    <path d="M106 34q3-2 5 0m5 0q2-2 4 0" fill="none" stroke="#e1cfac" stroke-width="1"/>
+                                    <ellipse cx="113" cy="49" rx="7.1" ry="5.1" fill="#f5e7cf" stroke="none"/>
+                                    <g class="film-puppy-eyes" fill="#4a555e" stroke="none">
+                                        <ellipse cx="106" cy="42" rx="1.55" ry="2.05"/><ellipse cx="120" cy="42" rx="1.55" ry="2.05"/>
+                                        <circle cx="106.45" cy="41.4" r=".5" fill="#fff"/><circle cx="120.45" cy="41.4" r=".5" fill="#fff"/>
+                                    </g>
+                                    <ellipse cx="103.5" cy="47.4" rx="2" ry="1.1" fill="#edc5af" opacity=".65" stroke="none"/><ellipse cx="122.5" cy="47.4" rx="2" ry="1.1" fill="#edc5af" opacity=".65" stroke="none"/>
+                                    <path d="M110 46c1-1 5-1 6 0 0 2-2 3-3 3s-3-1-3-3Z" fill="#56616a" stroke="none"/>
+                                    <path d="M113 49v1.5m-3 0q3 3 6 0" fill="none" stroke="#86715f" stroke-width=".9"/>
+                                    <path d="M112 52v1q1 2 2 0v-1" fill="#e6b0a5" stroke="none"/>
+                                </g>
+                            </g>
+                            <path d="M148 67q3-5 9-4-1 6-7 6Z" fill="#e5c389"/><path d="m148 70 7-5" fill="none" stroke="#bda06b" stroke-width=".7"/>
+                        </g>
+                        <g class="film-pause-symbol" fill="#8da8bf"><rect x="156" y="78" width="2.3" height="6" rx=".7"/><rect x="160.5" y="78" width="2.3" height="6" rx=".7"/></g>
+                        <path class="film-play-symbol" d="m156.5 77.5 6 3.5-6 3.5Z" fill="#8da8bf"/>
+                    </svg>
+                </button>
             </div>
         </div>
 
@@ -52,17 +283,17 @@
             <!-- About Me -->
             <div class="section" id="about">
                 <h2>About Me</h2>
-                <p>Hi 👋, I am Yixuan Zhang, a fourth-year undergraduate student majoring in Computer Science and Technology at Northeastern University (NEU), where I am advised by <a href="#" style="color: #3182ce; text-decoration: none;">Dr. Changzeng Fu</a> at the <a href="#" style="color: #3182ce; text-decoration: none;">HACI Lab</a>.
-                    I will be joining <a href="https://www.tbsi.edu.cn/" style="color: #3182ce; text-decoration: none;">Tsinghua-Berkeley Shenzhen Institute (TBSI)</a> as an incoming MPhil student, supervised by <a href="https://sites.google.com/view/slhuang/home" style="color: #3182ce; text-decoration: none;">Prof. Shao-Lun Huang</a>.</p>
+                <p>Hi 👋, I am Yixuan Zhang, a master's student in Data Science and Information Technology at <a href="https://www.sigs.tsinghua.edu.cn/en/" style="color: #3182ce; text-decoration: none;">Tsinghua Shenzhen International Graduate School (SIGS)</a>, Tsinghua University. I am supervised by <a href="https://www.sigs.tsinghua.edu.cn/dwb/main.psp" style="color: #3182ce; text-decoration: none;">Prof. Wenbo Ding</a> in the <a href="https://ssr-group.net/" style="color: #3182ce; text-decoration: none;">Smart Sensing and Robotics (SSR) Lab</a>.</p>
+                <p>I earned a Bachelor of Engineering (B.Eng.) degree in Computer Science and Technology from Northeastern University (NEU), where I was supervised by <a href="https://cz26.github.io/CZ-HP/" style="color: #3182ce; text-decoration: none;">Prof. Changzeng Fu</a> in the <a href="https://cz26.github.io/CZ-HP/lab.html" style="color: #3182ce; text-decoration: none;">Human-centered Affective Computing and Interaction (HACI) Lab</a>.</p>
                 
-                <p>My research interests include <strong>Multimodal Affective Computing</strong>, <strong>Human-Computer Interaction</strong>, and <strong>Emotion Recognition</strong>.</p>
+                <p>My research interests include <strong>Embodied Intelligence</strong> and <strong>Human-Robot Interaction (HRI)</strong>.</p>
             </div>
 
             <!-- News -->
             <div class="section" id="news">
                 <h2>News</h2>
                 <ul>
-                    <li><strong>2025.09:</strong> 🎉🎉 Will be joining <strong>Tsinghua-Berkeley Shenzhen Institute (TBSI)</strong> as an incoming MPhil student!</li>
+                    <li><strong>Sep 2026:</strong> 🎉 I joined <strong>Tsinghua SIGS</strong> as a master's student.</li>
                 </ul>
             </div>
 
@@ -74,10 +305,24 @@
                         <div class="education-card-header">
                             <div class="education-icon">🎓</div>
                             <div class="education-meta">
-                                <div class="education-school"><strong>Northeastern University (NEU)</strong></div>
-                                <div class="education-degree">B.S. in Computer Science and Technology - rank 1/118</div>
+                                <div class="education-school"><strong>Tsinghua University</strong></div>
+                                <div class="education-degree">Tsinghua Shenzhen International Graduate School (SIGS)</div>
+                                <div class="education-degree">Master's student in Data Science and Information Technology</div>
+                                <div class="education-degree">Supervisor: <a href="https://www.sigs.tsinghua.edu.cn/dwb/main.psp">Prof. Wenbo Ding</a></div>
                             </div>
-                            <div class="education-time">2022 – 2026 (Expected)</div>
+                            <div class="education-time">Sep 2026 – Present</div>
+                        </div>
+                    </div>
+                    <div class="education-card">
+                        <div class="education-card-header">
+                            <div class="education-icon">🎓</div>
+                            <div class="education-meta">
+                                <div class="education-school"><strong>Northeastern University (NEU)</strong></div>
+                                <div class="education-degree">Bachelor of Engineering (B.Eng.) in Computer Science and Technology</div>
+                                <div class="education-degree">Final Academic Rank: 1/118</div>
+                                <div class="education-degree">Supervisor: <a href="https://cz26.github.io/CZ-HP/">Prof. Changzeng Fu</a></div>
+                            </div>
+                            <div class="education-time">Sep 2022 – Jun 2026</div>
                         </div>
                     </div>
                 </div>
@@ -90,12 +335,12 @@
                     <div class="publication-content">
                         <div class="publication-text">
                             <div class="publication-title">
-                                The Impact of Teacher's Identity on Second Language Learners' Learning Effectiveness in an E-Learning Environment - A Preliminary Study
+                                Digital Human Teachers with Personalized Identity: Enhancing Accessibility and Long-Term Engagement in Sustainable Language Education
                             </div>
-                            <div class="publication-authors">Qi Deng*, <strong>Yixuan Zhang*</strong>, et al.</div>
-                            <div class="publication-conference frontiers">Frontiers in Psychology (Under Review)</div>
+                            <div class="publication-authors">Qi Deng, <strong>Yixuan Zhang</strong>, Yuehan Xiao, and Changzeng Fu</div>
+                            <div class="publication-conference sustainability">Sustainability, 18(1), Article 220, 2026</div>
                             <div class="publication-links">
-                                <a href="#">Paper</a>
+                                <a href="https://doi.org/10.3390/su18010220">Paper</a>
                             </div>
                         </div>
                     </div>
@@ -105,12 +350,12 @@
                     <div class="publication-content">
                         <div class="publication-text">
                             <div class="publication-title">
-                                M3ADD: A Novel Benchmark for Physiology Signal-based Automatic Depression Detection with Multimodal Multitask Multievent Framework
+                                M<sup>3</sup>ADD: A Novel Benchmark for Physiology Signal-based Automatic Depression Detection with Multimodal Multitask Multievent Framework
                             </div>
-                            <div class="publication-authors">Changzeng Fu, Kaifeng Su, Yikai Su, Fengkui Qian, <strong>Yixuan Zhang</strong>, et al.</div>
-                            <div class="publication-conference icassp">2025 IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP)</div>
+                            <div class="publication-authors">Changzeng Fu, Kaifeng Su, Yikai Su, Fengkui Qian, <strong>Yixuan Zhang</strong>, Chaoran Liu, Siyang Song, Le Yang, Xiaoyong Lv, Peng Shan, and Yuliang Zhao</div>
+                            <div class="publication-conference icassp">IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), 2025, pp. 1–5</div>
                             <div class="publication-links">
-                                <a href="#">Paper</a>
+                                <a href="https://doi.org/10.1109/ICASSP49660.2025.10889539">Paper</a>
                             </div>
                         </div>
                     </div>
@@ -119,130 +364,56 @@
 
             <!-- Awards -->
             <div class="section" id="awards">
-                <h2>Awards & Scholarships</h2>
-                
+                <h2>Awards &amp; Scholarships</h2>
+
                 <h3>Scholarships</h3>
                 <ul>
-                    <li><strong>National Scholarship</strong> – 2022-2023, 2023-2024 Academic Years</li>
-                    <li>Innovation and Entrepreneurship Scholarship – 2023, 2024</li>
-                    <li>Single-Item Scholarship – 2022-2023, 2023-2024 Academic Years</li>
-                    <li>Second-Class Scholarship – 2024-2025 Academic Year</li>
+                    <li><strong>National Scholarship</strong> – 2024–2025 Academic Year</li>
+                    <li><strong>National Scholarship</strong> – 2023–2024 Academic Year</li>
+                    <li><strong>National Scholarship</strong> – 2022–2023 Academic Year</li>
                 </ul>
 
-                <h3>Competitions</h3>
+                <h3>Competition Awards</h3>
                 <ul>
-                    <li><strong>National Special Prize</strong> – National English Competition for College Students</li>
-                    <li>National Bronze Award – "FLTRP Cup" National English Competency Competition</li>
-                    <li>National Third Prize – International Mathematical Contest in Modeling</li>
-                    <li>Provincial First Prize – National Undergraduate Entrepreneurship Competition</li>
-                    <li>Provincial Third Prize – China International College Students' Innovation Competition</li>
-                    <li>Provincial Third Prize – Undergraduate Academic and Technological Innovation Contest</li>
+                    <li><strong>National Second Prize</strong> – 19th “Challenge Cup” National College Students’ Extracurricular Academic Science and Technology Works Competition (“AI+” Special Competition)</li>
+                    <li><strong>Grand Prize</strong> – National English Competition for College Students (NECCS) – 2023</li>
+                    <li><strong>National Bronze Award</strong> – “FLTRP·ETIC Cup” “Understanding Contemporary China” National Foreign Language Contest for College Students (English Reading) – 2023</li>
                 </ul>
 
                 <h3>Honors</h3>
                 <ul>
-                    <li><strong>Province Outstanding Student</strong> – 2024-2025 Academic Year</li>
-                    <li>Outstanding Student Pacesetter – 2022-2023, 2023-2024 Academic Years</li>
-                    <li>Outstanding Youth League Member Pacesetter – 2023, 2024</li>
-                    <li>Outstanding Student Reporter – 2022-2023 Academic Year</li>
-                    <li>Outstanding Student Cadre – 2023-2024 Academic Year</li>
+                    <li><strong>Provincial Merit Student</strong> – 2025</li>
+                    <li><strong>Outstanding Graduate</strong> – 2026</li>
                 </ul>
-            </div>
-
-            <!-- Experience -->
-            <div class="section" id="experience">
-                <h2>Research Experience</h2>
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <div class="experience-title">Multimodal Multitask Multievent Depression Detection System</div>
-                        <div class="experience-period">2024.5 - 2024.11</div>
-                    </div>
-                    <div class="experience-organization">Lab Project</div>
-                    <div class="experience-description">
-                        <strong>Description:</strong> Served as a project member, participated in data collection and paper writing.<br>
-                        <strong>My Responsibility:</strong> Responsible for multimodal signal acquisition, processing, and system design.<br>
-                        <strong>Achievement:</strong> Completed multimodal dataset construction with paper published in ICASSP.
-                    </div>
-                </div>
-                
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <div class="experience-title">Digital Human Teacher Identity on Second Language Learning Outcomes</div>
-                        <div class="experience-period">2025.3 - Present</div>
-                    </div>
-                    <div class="experience-organization">Lab Project</div>
-                    <div class="experience-description">
-                        <strong>Description:</strong> Served as project leader, coordinated team members through design and experimental processes.<br>
-                        <strong>My Responsibility:</strong> Managed interaction experiments, data analysis, and paper writing.<br>
-                        <strong>Achievement:</strong> Submitted paper to Frontiers in Psychology as co-first author.
-                    </div>
-                </div>
-                
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <div class="experience-title">Deep Learning-Based Bionic Companion Robot</div>
-                        <div class="experience-period">2024.9 - Present</div>
-                    </div>
-                    <div class="experience-organization">Innovation Project</div>
-                    <div class="experience-description">
-                        <strong>Description:</strong> Served as project leader, organized robot interaction design and physical development.<br>
-                        <strong>My Responsibility:</strong> Designed emotional response functions and human-robot interaction strategies.<br>
-                        <strong>Achievement:</strong> Completed robot prototype with expected functions, recognized as Provincial Key innovation project with provincial competition award.
-                    </div>
-                </div>
-                
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <div class="experience-title">Mental Health Counseling System with Anonymous Virtual Identity</div>
-                        <div class="experience-period">2024.4 - 2024.10</div>
-                    </div>
-                    <div class="experience-organization">Lab Project</div>
-                    <div class="experience-description">
-                        <strong>Description:</strong> Served as project member, participated in system testing and patent application.<br>
-                        <strong>My Responsibility:</strong> Conducted system testing and assisted with experiments and result analysis.<br>
-                        <strong>Achievement:</strong> Completed experiments and analysis with patent published.
-                    </div>
-                </div>
-            </div>
-
-            <!-- Skills -->
-            <div class="section" id="skills">
-                <h2>Technical Skills</h2>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3>Programming Languages</h3>
-                        <ul class="skill-list">
-                            <li>Python</li>
-                            <li>Java</li>
-                            <li>C++</li>
-                            <li>JavaScript</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>Machine Learning</h3>
-                        <ul class="skill-list">
-                            <li>PyTorch</li>
-                            <li>TensorFlow</li>
-                            <li>Scikit-learn</li>
-                            <li>OpenCV</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>Research Tools</h3>
-                        <ul class="skill-list">
-                            <li>LaTeX</li>
-                            <li>MATLAB</li>
-                            <li>R</li>
-                            <li>Git</li>
-                        </ul>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
 
     <script src="script.js"></script>
+    <script>
+        (() => {
+            const toggle = document.querySelector('.film-toggle');
+            if (!toggle) return;
+            const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+            const updateMotionPreference = () => {
+                toggle.disabled = motionPreference.matches;
+                if (motionPreference.matches) {
+                    toggle.title = 'Animation paused: reduced motion is enabled';
+                    toggle.setAttribute('aria-label', 'Decorative scene; reduced motion is enabled');
+                } else {
+                    const paused = toggle.getAttribute('data-paused') === 'true';
+                    toggle.title = paused ? 'Play animation' : 'Pause animation';
+                    toggle.setAttribute('aria-label', paused ? 'Play decorative animation' : 'Pause decorative animation');
+                }
+            };
+            toggle.addEventListener('click', () => {
+                const paused = toggle.getAttribute('data-paused') !== 'true';
+                toggle.setAttribute('data-paused', String(paused));
+                updateMotionPreference();
+            });
+            motionPreference.addEventListener('change', updateMotionPreference);
+            updateMotionPreference();
+        })();
+    </script>
 </body>
 </html>
